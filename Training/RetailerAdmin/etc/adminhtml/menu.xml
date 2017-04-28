@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+                id="Training_RetailerAdmin::retailers"
+                title="Retailers"
+                translate="title"
+                module="Training_RetailerAdmin"
+                sortOrder="20"
+                resource="Training_RetailerAdmin::retailers"/>
+        <add
+                id="Training_RetailerAdmin::retailers_products"
+                title="Manage Retailers"
+                translate="title"
+                module="Training_RetailerAdmin"
+                sortOrder="10"
+                parent="Training_RetailerAdmin::retailers"
+                action="retaileradmin/retailer/grid"
+                resource="Training_RetailerAdmin::retailers_products"/>
+    </menu>
+</config>

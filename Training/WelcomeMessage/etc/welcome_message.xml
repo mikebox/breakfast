@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<welcome_message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Training_WelcomeMessage:etc/welcome_message.xsd">
+    <country code="IN">
+        <default>Welcome to India</default>
+        <state code="TN">Welcome to TN</state>
+        <state code="KA">Welcome to KA</state>
+    </country>
+    <country code="US">
+        <default>Welcome to US</default>
+        <state code="CA">Welcome to CA</state>
+    </country>
+</welcome_message>

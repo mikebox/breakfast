@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Training\WelcomeMessage\Model\Message">
+        <arguments>
+            <argument name="config" xsi:type="object">Magento\Framework\Config\Data\Virtual</argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\Framework\Config\Data\Virtual" type="Magento\Framework\Config\Data">
+        <arguments>
+            <argument name="cacheId" xsi:type="string">training_welcomemessage</argument>
+            <argument name="reader" xsi:type="object">Magento\Framework\Config\Reader\Filesystem\Virtual</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Framework\Config\Reader\Filesystem\Virtual" type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="converter" xsi:type="object">Training\WelcomeMessage\Model\Converter</argument>
+            <argument name="fileName" xsi:type="string">welcome_message.xml</argument>
+            <argument name="schemaLocator" xsi:type="object">Magento\Framework\Config\GenericSchemaLocator\Virtual</argument>
+            <argument name="idAttributes" xsi:type="array">
+                <item name="/welcome_message/country" xsi:type="string">code</item>
+                <item name="/welcome_message/country/state" xsi:type="string">code</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Framework\Config\GenericSchemaLocator\Virtual" type="Magento\Framework\Config\GenericSchemaLocator">
+        <arguments>
+            <argument name="moduleName" xsi:type="string">Training_WelcomeMessage</argument>
+            <argument name="schema" xsi:type="string">welcome_message.xsd</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Theme\Block\Html\Header">
+        <plugin name="changeLocalMessage" type="Training\WelcomeMessage\Plugin\Header" sortOrder="10"/>
+    </type>
+</config>

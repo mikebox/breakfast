@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Training\GeoIp\Api\Data\LocationInterface" type="Training\GeoIp\Model\Data\Location" />
+    <preference for="Training\GeoIp\Api\GeoIpInterface" type="Training\GeoIp\Model\GeoIpCacher" />
+    <preference for="Training\GeoIp\Api\IpToLocatorInterface" type="Training\GeoIp\Model\IpToLocator" />
+    <preference for="Training\GeoIp\Api\VisitorLocationInterface" type="Training\GeoIp\Model\VisitorLocation" />
+    <type name="Training\GeoIp\Model\GeoIpCacher">
+        <arguments>
+            <argument name="geoIp" xsi:type="object">Training\GeoIp\Model\GeoIp</argument>
+        </arguments>
+    </type>
+</config>
